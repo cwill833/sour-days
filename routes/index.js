@@ -5,10 +5,7 @@ var User = require('../models/user')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
-    title: 'Fantasy Portfolio APP',
-    user: req.user
-    });
+  res.render('index');
 });
 
 //Make a rout for the auth
