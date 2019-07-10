@@ -27,6 +27,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'build'))) // to serve static files
 
+app.use('/api')
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+}); //this will match every singe rout and send the single html file
+
 const port = process.env.PORT || 3001;
 
 app.listen(port, ()=>{
