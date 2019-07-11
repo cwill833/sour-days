@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
-    let nav = props.user ?
+  let nav = props.user ?
     <div>
       <Link to='' onClick={props.handleLogout}>LOG OUT</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -15,11 +15,11 @@ const NavBar = (props) => {
       <Link to='/signup'>SIGN UP</Link>
     </div>;
 
-    return(
-      <div>
-        {nav}
-      </div>
-    )
+  return(
+    <div>
+      {nav}
+    </div>
+  )
 }
 
 export default NavBar;

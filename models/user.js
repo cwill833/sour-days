@@ -4,11 +4,23 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
+const beersSchema = new Schema({
+  nameOfPlace: String,
+  location: String,
+  beerName: String,
+  rating: {
+    type: Number,
+    enum: [1,2,3,4,5,6,7,8,9,10],
+    default: 1
+  }
+})
+
 
 const userSchema = new Schema({
     name: String,
     email: {type: String, required: true, lowercase: true, unique: true},
-    password: String
+    password: String,
+    beers: [beersSchema]
   }, {
     timestamps: true
   });
