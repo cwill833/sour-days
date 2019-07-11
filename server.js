@@ -21,7 +21,7 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico'))) // to serve favic
 
 app.use(express.static(path.join(__dirname, 'build'))) // to serve static files
 
-
+app.use('/api/users', require('./routes/api/users'));
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

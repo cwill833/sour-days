@@ -10,19 +10,31 @@ class App extends Component{
   constructor() {
     super();
     this.state = {
-      ...this.getInitialState(), 
-      difficulty: 'Easy', 
-      scores: [],
       user: userService.getUser()
     }
   }
+
+  handleLogout = () => {
+    userService.logOut()
+    this.setState({
+      user: null
+    })
+  }
+
+  handleSignupOrLogin = ()=> {
+    this.setState({user: userService.getUser()})
+  }
+
+  
+
   render(){
     return (
       <div>
         <Switch>
           <Route exact path='/' render={()=>
             <LandingPage 
-
+              user={this.state.user}
+              handleLogout={this.handleLogout}
             />
           }/>
           <Route exact path='/signup' render={({ history }) => 
@@ -32,7 +44,7 @@ class App extends Component{
           }/>
           <Route exact path='/login' render={({ history }) => 
             <LoginPage
-            handleSignupOrLogin={this.handleSignupOrLogin}
+              handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
         </Switch>
