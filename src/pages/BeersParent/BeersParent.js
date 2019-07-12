@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import Beers from '../Beers/Beers';
 
 class BeersParent extends Component {
