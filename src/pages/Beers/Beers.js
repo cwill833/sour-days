@@ -24,7 +24,6 @@ const Beers = (props) =>{
         <NavBar 
             user={props.user}
             handleLogout={props.handleLogout}
-            getBeers={props.getBeers}
         />
         <ul>{beerList}</ul>
         <Link to='/addBeer'>Add a beer</Link>

@@ -24,7 +24,7 @@ class LoginPage extends Component {
       //let app know user has signed up
       this.props.handleSignupOrLogin()
       // Successfully signed up - show GamePage
-      this.props.history.push('/beers');
+      this.props.history.push('/');
     } catch (err) {
       // Invalid user data (probably duplicate email)
       alert('Invalid Credentials')

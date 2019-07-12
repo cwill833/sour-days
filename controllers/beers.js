@@ -9,6 +9,7 @@ module.exports = {
   };
 
   function deleteBeer(req, res){
+    console.log(req.body)
     const userId = req.body.user._id
     const beerId = req.body._id
     User.findById(userId)
@@ -35,6 +36,7 @@ module.exports = {
 //   }
   
   function createBeer(req, res) {
+    console.log(req.body)
     let id = req.body.user._id
     let location = req.body.location
     let beerName = req.body.beerName
@@ -56,8 +58,8 @@ module.exports = {
   }
   
   function getAllBeers(req, res) {
-    console.log(req.body.user)
-    User.findById(req.body.user._id)
+    console.log(req.body._id)
+    User.findById(req.body._id)
     .then(person=>{
         res.status(200).json(person.beers)
     })
