@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const favicon = require('serve-favicon')
 const logger = require('morgan')
 
@@ -11,7 +12,7 @@ require('./config/database');
 
 const app = express()
 
-
+app.use(cors());
 app.use(logger('dev'))
 app.use(express.json())
 app.use(cookieParser());
@@ -22,6 +23,7 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico'))) // to serve favic
 app.use(express.static(path.join(__dirname, 'build'))) // to serve static files
 
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/beers', require('./routes/api/beers'));
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
