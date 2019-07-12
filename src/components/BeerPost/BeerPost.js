@@ -1,7 +1,7 @@
 import React from 'react';
 import DeleteButton from '../DeleteButton/DeleteButton'
 
-function BeerPost ({nameOfPlace, location, beerName, rating, index, handleDeleteBeer}) {
+function BeerPost ({nameOfPlace, location, beerName, rating, index, handleDeleteBeer, user, _id}) {
     return (
         <li>
             <h3>Bar/Brewery: {nameOfPlace}</h3>
@@ -10,7 +10,9 @@ function BeerPost ({nameOfPlace, location, beerName, rating, index, handleDelete
             <h6>Your Rating: {rating}</h6>
             <DeleteButton 
                 index={index}
+                _id={_id}
                 handleDeleteBeer={handleDeleteBeer}
+                user={user}
             />
         </li>
     )

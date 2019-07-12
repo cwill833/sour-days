@@ -14,6 +14,7 @@ const Beers = (props) =>{
         key={index}
         index={index}
         handleDeleteBeer={props.handleDeleteBeer}
+        user={props.user}
       />
     )
   })

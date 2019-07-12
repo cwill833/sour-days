@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-const DeleteButton = ({index, handleDeleteBeer}) => {
+const DeleteButton = ({index, handleDeleteBeer, user, _id}) => {
     return(
-        <button onClick={() => handleDeleteBeer(index)}>Delete Beer</button>
+        <button onClick={() => handleDeleteBeer(index, user, _id)}>Delete Beer</button>
     )
 }
 
