@@ -6,13 +6,14 @@ import NavBar from '../../components/NavBar/NavBar';
 
 
 
-const Beers= (props) =>{
+const Beers = (props) =>{
   const beerList = props.beers.map((beer, index) => {
     return (
       <BeerPost
       {...beer}
         key={index}
         index={index}
+        handleDeleteBeer={props.handleDeleteBeer}
       />
     )
   })

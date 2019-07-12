@@ -8,7 +8,7 @@ const NavBar = (props) => {
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <span>WELCOME, {props.user.name}</span>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link onClick={()=> props.getBeers(props.user.email)} to='/beers'>See my beers</Link>
+      <Link onClick={()=> props.getBeers(props.user)} to='/beers'>See my beers</Link>
     </div>
     :
     <div>

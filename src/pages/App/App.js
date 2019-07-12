@@ -18,10 +18,22 @@ class App extends Component{
     }
   }
 
-  handleGetBeers = (email) => {
+  handleDeleteBeer = (beerIdx) =>{
+    console.log(beerIdx)
+  }
+
+  handleGetBeers = (user) => {
+		const options = {
+			method: 'POST',
+			headers : {
+				"content-type" : "application/json"
+			},
+			body: JSON.stringify({user})
+		}
+
     async function getBeers(){
       try{
-        const fetchBeers = await fetch(`http://localhost:3001/api/beers/all?email=${email}`)
+        const fetchBeers = await fetch(`http://localhost:3001/api/beers/all`, options)
         const data = await fetchBeers.json()
         return await data
       } catch(error) {
@@ -34,15 +46,6 @@ class App extends Component{
     })
     )
   }
-
-
-  // componentDidMount(){
-  //   this.getBeers(this.state.user.email).then(results => 
-  //     this.setState({
-	// 		beers: results
-  //   })
-  //   )
-  // }
 
   handleAddBeer = ({nameOfPlace, location, beerName, rating}) => {
     const {user} = this.state
@@ -68,9 +71,6 @@ class App extends Component{
 			this.setState({
 			  beers: [{...result}, ...this.state.beers]
       }))
-    // this.setState({
-    //   beers: [{nameOfPlace, location, beerName, rating}, ...this.state.beers]
-    // })
 	}
 
   handleLogout = () => {
@@ -88,8 +88,6 @@ class App extends Component{
   
 
   render(){
-
-    
     return (
       <div>
         <Switch>
@@ -104,7 +102,9 @@ class App extends Component{
               user={this.state.user} 
               beers={this.state.beers}
               handleLogout={this.handleLogout}
+              handleDeleteBeer={this.handleDeleteBeer}
               getBeers={this.handleGetBeers}
+
             />
           }/>
           <Route exact path='/addBeer' render={()=>

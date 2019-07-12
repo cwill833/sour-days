@@ -21,12 +21,12 @@ module.exports = {
   
   function createBeer(req, res) {
     console.log(req.body)
-    let email = req.body.user.email
+    let id = req.body.user._id
     let location = req.body.location
     let beerName = req.body.beerName
     let nameOfPlace = req.body.nameOfPlace
     let rating = req.body.rating
-    User.findOne({email: email})
+    User.findById(id)
     .then(person=>{
       let beer = {
         location,
@@ -43,10 +43,9 @@ module.exports = {
   }
   
   function getAllBeers(req, res) {
-    let email = req.query.email
-    User.findOne({email: email})
+    console.log(req.body.user)
+    User.findById(req.body.user._id)
     .then(person=>{
-      console.log(person.beers)
         res.status(200).json(person.beers)
     })
   }
