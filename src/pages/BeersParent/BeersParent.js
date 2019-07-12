@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Beers from '../Beers/Beers';
 
+const BASE_URL='/api/beers'
+
 class BeersParent extends Component {
     constructor(){
         super()
@@ -62,7 +64,7 @@ export default BeersParent
 
 async function getBeers(options){
     try{
-        const fetchBeers = await fetch(`http://localhost:3001/api/beers/all`, options)
+        const fetchBeers = await fetch(BASE_URL + 'all', options)
         const data = await fetchBeers.json()
         return await data
     } catch(error) {
