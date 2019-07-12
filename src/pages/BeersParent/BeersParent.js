@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Beers from '../Beers/Beers';
 
-const BASE_URL='/api/beers'
+const BASE_URL='/api/beers/'
 
 class BeersParent extends Component {
     constructor(){
