@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 
 import Form from '../../components/Form/Form'
 
-
+const BASE_URL='/api/beers/'
 
 class AddBeer extends Component{
 
@@ -36,7 +36,7 @@ export default AddBeer
 
 async function createBeer(options){
     try{
-        const sendPost = await fetch('http://localhost:3001/api/beers/create', options)
+        const sendPost = await fetch(BASE_URL+ 'create', options)
         const postReults = await sendPost.json()
         return await postReults
     } catch (error){

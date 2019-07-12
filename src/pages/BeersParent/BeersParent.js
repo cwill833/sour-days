@@ -74,7 +74,7 @@ async function getBeers(options){
 
 async function deleteBeers(options){
     try{
-      const deletedBeer = await fetch(`http://localhost:3001/api/beers/deleteBeer`, options)
+      const deletedBeer = await fetch(BASE_URL + 'deleteBeer', options)
       const data = await deletedBeer.json()
       return await data
     } catch(error) {

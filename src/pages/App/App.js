@@ -17,32 +17,6 @@ class App extends Component{
     }
   }
 
-  // handleDeleteBeer = (beerIdx, user, _id) =>{
-  //   const options = {
-	// 		method: 'POST',
-	// 		headers : {
-	// 			"content-type" : "application/json"
-	// 		},
-	// 		body: JSON.stringify({beerIdx: beerIdx, _id: _id,user})
-  //   }
-  //   async function deleteBeers(){
-  //     try{
-  //       const deletedBeer = await fetch(`http://localhost:3001/api/beers/deleteBeer`, options)
-  //       const data = await deletedBeer.json()
-  //       return await data
-  //     } catch(error) {
-  //       console.log(error)
-  //     }
-  //   }
-
-  //   deleteBeers().then(result=> {
-  //     const newStateArray = this.state.beers.filter(
-  //       (elem, idx) => idx !== result
-  //       )
-  //       this.setState({ beers: newStateArray })
-  //   })
-  // }
-
   handleLogout = () => {
     userService.logOut()
     this.setState({
