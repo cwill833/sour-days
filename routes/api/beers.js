@@ -4,7 +4,7 @@ const beerCtrl = require('../../controllers/beers');
 
 /*---------- Public Routes ----------*/
 router.get('/all', beerCtrl.getAllBeers)
-
+router.post('/create', beerCtrl.createBeer)
 
 
 /*---------- Protected Routes ----------*/

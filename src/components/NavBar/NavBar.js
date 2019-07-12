@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 const NavBar = (props) => {
   let nav = props.user ?
     <div>
-      <Link to='' onClick={props.handleLogout}>LOG OUT</Link>
+      <Link to='/' onClick={props.handleLogout}>LOG OUT</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <span>WELCOME, {props.user.name}</span>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <Link onClick={()=> props.getBeers(props.user.email)} to='/beers'>See my beers</Link>
     </div>
     :
     <div>

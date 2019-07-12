@@ -1,5 +1,3 @@
-import { ninvoke } from "q";
-
 function setToken(token){
     if(token){
         localStorage.setItem('token', token)

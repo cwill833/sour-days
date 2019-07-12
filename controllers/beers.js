@@ -20,20 +20,33 @@ module.exports = {
 //   }
   
   function createBeer(req, res) {
-    let email = req.user.email
+    console.log(req.body)
+    let email = req.body.user.email
+    let location = req.body.location
+    let beerName = req.body.beerName
+    let nameOfPlace = req.body.nameOfPlace
+    let rating = req.body.rating
     User.findOne({email: email})
     .then(person=>{
-        person.beers.create(req.body)
+      let beer = {
+        location,
+        beerName,
+        nameOfPlace,
+        rating
+      }
+      person.beers.push(beer)
+      console.log(beer)
         person.save(()=>{
-            res.status(201).json(person.beers)
+            res.status(201).json(beer)
         })
     })
   }
   
   function getAllBeers(req, res) {
-    let email = req.user.email
+    let email = req.query.email
     User.findOne({email: email})
     .then(person=>{
+      console.log(person.beers)
         res.status(200).json(person.beers)
     })
   }

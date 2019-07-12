@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Link, Switch, Redirect, BrowserRouter as Router} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
 import LoginPage from '../LoginPage/LoginPage'
 import SignupPage from '../SignupPage/SignupPage'
@@ -7,62 +7,77 @@ import userService from '../../utils/userService'
 import Beers from '../Beers/Beers'
 import AddBeer from '../AddBeer/AddBeer'
 import './App.css';
-import { set } from 'mongoose';
+
 
 class App extends Component{
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
-      beers: [
-        {
-          nameOfPlace: 'new new',
-          location: 'Austin',
-          beerName: 'sour',
-          rating: 1
-        }
-      ]
+      beers: []
     }
   }
 
+  handleGetBeers = (email) => {
+    async function getBeers(){
+      try{
+        const fetchBeers = await fetch(`http://localhost:3001/api/beers/all?email=${email}`)
+        const data = await fetchBeers.json()
+        return await data
+      } catch(error) {
+        console.log(error)
+      }
+    }
+    getBeers().then(results => 
+      this.setState({
+			beers: results
+    })
+    )
+  }
+
+
   // componentDidMount(){
-  //   getBeers().then(results => this.setState({
-	// 		beers: {results}
-	// 	}))
+  //   this.getBeers(this.state.user.email).then(results => 
+  //     this.setState({
+	// 		beers: results
+  //   })
+  //   )
   // }
 
   handleAddBeer = ({nameOfPlace, location, beerName, rating}) => {
-		// const options = {
-		// 	method: 'POST',
-		// 	headers : {
-		// 		"content-type" : "application/json"
-		// 	},
-		// 	body: JSON.stringify({nameOfPlace, location, beerName, rating})
-		// }
+    const {user} = this.state
+		const options = {
+			method: 'POST',
+			headers : {
+				"content-type" : "application/json"
+			},
+			body: JSON.stringify({nameOfPlace, location, beerName, rating, user})
+		}
 
-		// async function createPosts(){
-		// 	try{
-		// 		const sendPost = await fetch('http://localhost:8000/api/post', options)
-		// 		const postReults = await sendPost.json()
-		// 		return await postReults
-		// 	} catch (error){
-		// 		console.log(error)
-		// 	}
-		// }
+		async function createBeer(){
+			try{
+				const sendPost = await fetch('http://localhost:3001/api/beers/create', options)
+				const postReults = await sendPost.json()
+				return await postReults
+			} catch (error){
+				console.log(error)
+			}
+		}
 
-		// createPosts().then(result => 
-		// 	this.setState({
-		// 	posts: [{...result}, ...this.state.posts]
-    // }))
-    this.setState({
-      beers: [{nameOfPlace, location, beerName, rating}, ...this.state.beers]
-    })
+		createBeer().then(result => 
+			this.setState({
+			  beers: [{...result}, ...this.state.beers]
+      }))
+    // this.setState({
+    //   beers: [{nameOfPlace, location, beerName, rating}, ...this.state.beers]
+    // })
 	}
 
   handleLogout = () => {
     userService.logOut()
     this.setState({
-      user: null
+      user: null,
+      beers: []
     })
   }
 
@@ -85,8 +100,11 @@ class App extends Component{
             />
           }/>
           <Route exact path='/beers' render={()=>
-            <Beers 
+            <Beers
+              user={this.state.user} 
               beers={this.state.beers}
+              handleLogout={this.handleLogout}
+              getBeers={this.handleGetBeers}
             />
           }/>
           <Route exact path='/addBeer' render={()=>
@@ -111,16 +129,6 @@ class App extends Component{
       </div>
     )
   }
-}
-
-async function getBeers(){
-	try{
-		const fetchBeers = await fetch('http://localhost:3001/api/beers/all')
-		const data = fetchBeers.json()
-		return await data
-	} catch(error) {
-		console.log(error)
-	}
 }
 
 export default App;
