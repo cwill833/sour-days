@@ -26,7 +26,7 @@ class YelpResults extends Component {
                 this.setState({
                     location: results
                 })
-                console.log(this.state.location)
+                console.log(this.state.location[0].is_closed)
             })
 
         })

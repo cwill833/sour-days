@@ -8,7 +8,7 @@ function YelpResult ({name, location, price, rating, review_count, is_closed}) {
             <h6>Price: {price}</h6>
             <h6>Yelp rating: {rating}</h6>
             <h6>Yelp reviews: {review_count}</h6>
-            <h6>Closed? {is_closed ? 'Closed :(' : 'Opened!'}</h6>
+            <h6>{is_closed.toString() === 'true' ? 'Sorry, we are closed :(' : 'We are open!'}</h6>
         </li>
     )
 }
