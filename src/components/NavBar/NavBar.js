@@ -8,9 +8,11 @@ const NavBar = (props) => {
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <span>WELCOME, {props.user.name}</span>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <Link to='/'>Home</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <Link to='/beers'>See my beers</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to='/'>Home</Link>
+      <Link to='/addBeer'>Add a beer</Link>
     </div>
     :
     <div>

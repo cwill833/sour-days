@@ -3,10 +3,14 @@ const User = require('../models/user');
 module.exports = {
     getAllBeers,
     createBeer,
-    deleteBeer
+    deleteBeer,
+    editBeer
     // getOnePost,
-    // deletePost
   };
+
+  function editBeer(req, res){
+    console.log(req)
+  }
 
   function deleteBeer(req, res){
     console.log(req.body)
@@ -15,19 +19,12 @@ module.exports = {
     User.findById(userId)
     .then(person=>{
       const beer = person.beers.id(beerId)
-      console.log(req.body.beerIdx)
       person.beers.remove(beer)
       person.save(()=>{
         res.status(201).json(req.body.beerIdx)
       })
     })
   }
-  
-//   function deletePost(req, res) {
-//     Blog.findByIdAndRemove(req.params.id).then(function(blog) {
-//       res.status(200).json(blog);
-//     });
-//   }
   
 //   function getOnePost(req, res) {
 //     Blog.findById(req.params.id).then(function(post) {
@@ -58,9 +55,9 @@ module.exports = {
   }
   
   function getAllBeers(req, res) {
-    console.log(req.body._id)
     User.findById(req.body._id)
     .then(person=>{
+        console.log(person)
         res.status(200).json(person.beers)
     })
   }

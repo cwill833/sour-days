@@ -47,9 +47,10 @@ class App extends Component{
               handleDeleteBeer={this.handleDeleteBeer}
             />
           }/>
-          <Route exact path='/addBeer' render={()=>
+          <Route exact path='/addBeer' render={({history})=>
             <AddBeer
               user={this.state.user}
+              history={history}
             />
           }/>
           <Route exact path='/signup' render={({ history }) => 

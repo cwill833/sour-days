@@ -10,6 +10,7 @@ const LandingPage = (props) =>{
         user={props.user}
         handleLogout={props.handleLogout}
       />
+      <h1>Could this page be any more bland......</h1>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BeerPost from '../../components/BeerPost/BeerPost'
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -19,14 +18,15 @@ const Beers = (props) =>{
     )
   })
 
+  let show = beerList.length > 0 ? beerList : 'Add a beer to see here!'
+
   return(
     <div>
         <NavBar 
             user={props.user}
             handleLogout={props.handleLogout}
         />
-        <ul>{beerList}</ul>
-        <Link to='/addBeer'>Add a beer</Link>
+        <ul>{show}</ul>
     </div>
   )
 }

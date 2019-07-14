@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-
+import {Link,  Redirect } from 'react-router-dom'
 export default class Form extends Component {
 
 	state = {
 		nameOfPlace: '',
 		location: '',
         beerName: '',
-        rating: ''
+        rating: '1'
 	}
 
 	handleChange = event => {
@@ -23,8 +22,9 @@ export default class Form extends Component {
             nameOfPlace: '',
             location: '',
             beerName: '',
-            rating: ''
+            rating: '1'
 		});
+		this.props.history.push('/beers')
     } 
 
 	render() {

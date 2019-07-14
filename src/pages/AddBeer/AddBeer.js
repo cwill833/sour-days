@@ -2,8 +2,6 @@ import React,{Component} from 'react';
 
 import Form from '../../components/Form/Form'
 
-const BASE_URL='/api/beers/'
-
 class AddBeer extends Component{
 
     handleAddBeer = ({nameOfPlace, location, beerName, rating}) => {
@@ -26,6 +24,7 @@ class AddBeer extends Component{
                 <h4>AddBeer</h4>
                 <Form 
                     handleAddBeer={this.handleAddBeer}
+                    history={this.props.history}
                 />
             </div>
         )
@@ -34,9 +33,11 @@ class AddBeer extends Component{
 
 export default AddBeer
 
+
+const BASE_URL='/api/beers/'
 async function createBeer(options){
     try{
-        const sendPost = await fetch(BASE_URL+ 'create', options)
+        const sendPost = await fetch(BASE_URL + 'create', options)
         const postReults = await sendPost.json()
         return await postReults
     } catch (error){
