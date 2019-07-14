@@ -6,6 +6,7 @@ const beerCtrl = require('../../controllers/beers');
 router.post('/all', beerCtrl.getAllBeers)
 router.post('/create', beerCtrl.createBeer)
 router.post('/deleteBeer', beerCtrl.deleteBeer)
+router.post('/yelpSearch', beerCtrl.yelpSearch)
 
 /*---------- Protected Routes ----------*/
 

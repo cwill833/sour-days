@@ -13,6 +13,8 @@ const NavBar = (props) => {
       <Link to='/beers'>See my beers</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <Link to='/addBeer'>Add a beer</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <Link to='/yelpResults'>See bars near you!</Link>
     </div>
     :
     <div>

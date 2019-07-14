@@ -6,8 +6,9 @@ import SignupPage from '../SignupPage/SignupPage'
 import userService from '../../utils/userService'
 import BeersParent from '../BeersParent/BeersParent'
 import AddBeer from '../AddBeer/AddBeer'
-import './App.css';
+import YelpResults from '../YelpResults/YelpResults';
 
+import './App.css';
 
 class App extends Component{
   constructor() {
@@ -51,6 +52,12 @@ class App extends Component{
             <AddBeer
               user={this.state.user}
               history={history}
+            />
+          }/>
+          <Route exact path='/yelpResults' render={()=>
+            <YelpResults 
+            user={this.state.user}
+            handleLogout={this.handleLogout}
             />
           }/>
           <Route exact path='/signup' render={({ history }) => 
