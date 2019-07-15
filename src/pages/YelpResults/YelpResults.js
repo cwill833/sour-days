@@ -66,7 +66,9 @@ class YelpResults extends Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <ul>{show}</ul>
+                <div className='flex'>
+                    {show}
+                </div>
             </div>
         )
     }

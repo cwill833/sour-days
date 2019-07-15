@@ -1,7 +1,7 @@
 import React from 'react';
 import BeerPost from '../../components/BeerPost/BeerPost'
 import NavBar from '../../components/NavBar/NavBar';
-
+import './Beers.css'
 
 
 
@@ -21,12 +21,14 @@ const Beers = (props) =>{
   let show = beerList.length > 0 ? beerList : 'Add a beer to see here!'
 
   return(
-    <div>
+    <div >
         <NavBar 
             user={props.user}
             handleLogout={props.handleLogout}
         />
-        <ul>{show}</ul>
+        <div className='flex'>
+          {show}
+        </div>
     </div>
   )
 }

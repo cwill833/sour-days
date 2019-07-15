@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-
+import './Form.css'
 
 export default class Form extends Component {
 
@@ -31,15 +31,16 @@ export default class Form extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='container'>
 				<form onSubmit={this.handleSubmit}>
-					<div>
+					<div >
 						<div>
 						<label>Name of Place</label>
 						<input
 							onChange={this.handleChange}
 							name="nameOfPlace"
 							value={this.state.nameOfPlace}
+							
 						/>
 						</div>
 						<div>
@@ -48,6 +49,7 @@ export default class Form extends Component {
 							onChange={this.handleChange}
 							name="location"
 							value={this.state.location}
+							
 						/>
 						</div>
 						<div>
@@ -56,6 +58,7 @@ export default class Form extends Component {
 							onChange={this.handleChange}
 							name="beerName"
 							value={this.state.beerName}
+							
 						/>
 						</div>
 						<div>
@@ -79,7 +82,7 @@ export default class Form extends Component {
 							</label>
 						</div>
 					</div>
-					<input type="submit"  />
+					<input className="btn btn-info" type="submit"  />
 				</form>
 				<Link to='/beers'>Back to your beers</Link>
 			</div>

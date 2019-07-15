@@ -3,18 +3,20 @@ import DeleteButton from '../DeleteButton/DeleteButton'
 
 function BeerPost ({nameOfPlace, location, beerName, rating, index, handleDeleteBeer, user, _id}) {
     return (
-        <li>
-            <h3>Bar/Brewery: {nameOfPlace}</h3>
-            <h3>Location: {location}</h3>
-            <h5>Name of Beer: {beerName}</h5>
-            <h6>Your Rating: {rating}</h6>
-            <DeleteButton 
-                index={index}
-                _id={_id}
-                handleDeleteBeer={handleDeleteBeer}
-                user={user}
-            />
-        </li>
+        <div className="card" style={{width: "18rem"}}>
+            <ul className="list-group list-group-flush">
+                <li className="list-group-item">Bar/Brewery: {nameOfPlace}</li>
+                <li className="list-group-item">Location: {location}</li>
+                <li className="list-group-item">Name of Beer: {beerName}</li>
+                <li className="list-group-item">Your Rating: {rating}</li>
+                <DeleteButton 
+                    index={index}
+                    _id={_id}
+                    handleDeleteBeer={handleDeleteBeer}
+                    user={user}
+                />
+            </ul>
+        </div>
     )
 }
 

@@ -73,7 +73,7 @@ module.exports = {
       term: 'Bar',
       latitude: req.body.lat,
       longitude: req.body.lng,
-      limit: 5
+      limit: 8
     }).then(response => {
       console.log(response.jsonBody.businesses);
       let result = response.jsonBody.businesses
