@@ -21,12 +21,12 @@ export default class Form extends Component {
         event.preventDefault()
 		this.props.handleAddBeer(this.state)
 		this.setState({
-            nameOfPlace: '',
-            location: '',
-            beerName: '',
-            rating: '1'
+			nameOfPlace: '',
+			location: '',
+			beerName: '',
+			rating: '1'
 		});
-		this.props.history.push('/beers')
+		this.props.history.push('/beers')	
     } 
 
 	render() {
