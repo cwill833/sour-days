@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import createBeer from '../../utils/CreateBeer';
 import Form from '../../components/Form/Form'
 
 class AddBeer extends Component{
@@ -33,14 +33,14 @@ class AddBeer extends Component{
 
 export default AddBeer
 
-
-const BASE_URL='/api/beers/'
-async function createBeer(options){
-    try{
-        const sendPost = await fetch(BASE_URL + 'create', options)
-        const postReults = await sendPost.json()
-        return await postReults
-    } catch (error){
-        console.log(error)
-    }
-}
+// moved to utils
+// const BASE_URL='/api/beers/'
+// async function createBeer(options){
+//     try{
+//         const sendPost = await fetch(BASE_URL + 'create', options)
+//         const postReults = await sendPost.json()
+//         return await postReults
+//     } catch (error){
+//         console.log(error)
+//     }
+// }

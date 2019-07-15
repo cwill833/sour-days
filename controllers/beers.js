@@ -51,6 +51,7 @@ module.exports = {
         rating
       }
       person.beers.push(beer)
+      console.log(person.beers[0])
         person.save(()=>{
             res.status(201).json(beer)
         })

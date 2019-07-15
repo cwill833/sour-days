@@ -45,7 +45,6 @@ class App extends Component{
             <BeersParent
               user={this.state.user} 
               handleLogout={this.handleLogout}
-              handleDeleteBeer={this.handleDeleteBeer}
             />
           }/>
           <Route exact path='/addBeer' render={({history})=>

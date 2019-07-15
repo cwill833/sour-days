@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import YelpResult from '../../components/YelpResult/YelpResult'
+import createBeer from '../../utils/CreateBeer';
+
 
 
 
@@ -8,10 +10,21 @@ class YelpResults extends Component {
     constructor(){
         super()
         this.state ={
-            location: [],
-            searchResults: []
+            locations: [],
         }
     }
+
+    handleAddYelp = (nameOfPlace, location, beerName, rating) => {
+        const {user} = this.props
+            const options = {
+                method: 'POST',
+                headers : {
+                    "content-type" : "application/json"
+                },
+                body: JSON.stringify({nameOfPlace, location, beerName, rating, user})
+            }    
+            createBeer(options)
+        }
 
     componentDidMount(){
         getCurrentLatLng().then(results=>{
@@ -24,9 +37,8 @@ class YelpResults extends Component {
             }  
             yelpFetch(options).then(results=>{
                 this.setState({
-                    location: results
+                    locations: results
                 })
-                console.log(this.state.location[0].is_closed)
             })
 
         })
@@ -35,13 +47,13 @@ class YelpResults extends Component {
 
     render(){
 
-    
-        const yelp = this.state.location.map((result, index) => {
+        const yelp = this.state.locations.map((result, index) => {
             return (
                 <YelpResult
                     {...result}
                     key={index}
                     index={index}
+                    handleAddYelp={this.handleAddYelp}
                 />
             )
         })
