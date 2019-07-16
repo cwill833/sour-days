@@ -43,7 +43,7 @@ const LandingPage = (props) =>{
   )
 }
 $(document).ready(function() {
-  $('.pour') //Pour Me Another Drink, Bartender!
+  $('.pour')
     .delay(2000)
     .animate({
       height: '360px'
@@ -51,13 +51,13 @@ $(document).ready(function() {
     .delay(1600)
     .slideUp(500);
   
-  $('#liquid') // I Said Fill 'Er Up!
+  $('#liquid')
     .delay(3400)
     .animate({
       height: '170px'
     }, 2500);
   
-  $('.beer-foam') // Keep that Foam Rollin' Toward the Top! Yahooo!
+  $('.beer-foam') 
     .delay(3400)
     .animate({
       bottom: '183px'

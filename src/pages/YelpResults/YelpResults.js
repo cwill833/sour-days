@@ -83,6 +83,8 @@ class YelpResults extends Component {
 
 export default YelpResults
 
+//TODO move to utils
+
 const BASE_URL='/api/beers/'
 async function yelpFetch(options){
     try{

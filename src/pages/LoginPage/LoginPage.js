@@ -23,7 +23,7 @@ class LoginPage extends Component {
       await userService.login(this.state);
       //let app know user has signed up
       this.props.handleSignupOrLogin()
-      // Successfully signed up - show GamePage
+      // Successfully signed up - show beers
       this.props.history.push('/beers');
     } catch (err) {
       // Invalid user data (probably duplicate email)
@@ -49,27 +49,6 @@ class LoginPage extends Component {
         <Link to='/'>Cancel</Link>
       </form>
       </div>
-      // <div>
-      //   <header>Log In</header>
-      //   <form onSubmit={this.handleSubmit} autoComplete='off' >
-      //     <div>
-      //       <div>
-      //         <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-      //       </div>
-      //     </div>
-      //     <div>
-      //       <div>
-      //         <input type="password" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
-      //       </div>
-      //     </div>
-      //     <div>
-      //       <div>
-      //         <button>Log In</button>&nbsp;&nbsp;&nbsp;
-      //         <Link to='/'>Cancel</Link>
-      //       </div>
-      //     </div>
-      //   </form>
-       // </div>  
     );
   }
 }

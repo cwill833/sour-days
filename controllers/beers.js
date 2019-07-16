@@ -8,7 +8,6 @@ module.exports = {
     deleteBeer,
     editBeer,
     yelpSearch
-    // getOnePost,
   };
 
   function editBeer(req, res){
@@ -28,12 +27,6 @@ module.exports = {
       })
     })
   }
-  
-//   function getOnePost(req, res) {
-//     Blog.findById(req.params.id).then(function(post) {
-//       res.status(200).json(post);
-//     });
-//   }
   
   function createBeer(req, res) {
     console.log(req.body)
@@ -67,8 +60,6 @@ module.exports = {
   }
 
   function yelpSearch(req, res){
-    // console.log(req.body)
-    // res.status(200).json(req.body)
     client.search({
       term: 'Bar',
       latitude: req.body.lat,

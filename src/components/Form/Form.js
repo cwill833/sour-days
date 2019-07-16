@@ -88,58 +88,6 @@ export default class Form extends Component {
 				<Link to='/beers'>Back to your beers</Link>
 			</form>
 			</div>
-			// <div className={`container ${style.flex}`}>
-			// 	<form onSubmit={this.handleSubmit} autoComplete='off'>
-			// 		<div >
-			// 			<div>
-			// 			<label>Name of Place</label>
-			// 			<input
-			// 				onChange={this.handleChange}
-			// 				name="nameOfPlace"
-			// 				value={this.state.nameOfPlace}
-			// 			/>
-			// 			</div>
-			// 			<div>
-			// 			<label>Location</label>
-			// 			<input
-			// 				onChange={this.handleChange}
-			// 				name="location"
-			// 				value={this.state.location}
-			// 			/>
-			// 			</div>
-			// 			<div>
-			// 			<label>Name of beer</label>
-			// 			<input
-			// 				onChange={this.handleChange}
-			// 				name="beerName"
-			// 				value={this.state.beerName}
-			// 			/>
-			// 			</div>
-			// 			<div>
-			// 				<label>Rate from 1-10
-			// 					<select
-			// 						onChange={this.handleChange}
-			// 						name='rating'
-			// 						value={this.state.rating}
-			// 					>
-			// 						<option value="1">1</option>
-			// 						<option value="2">2</option>
-			// 						<option value="3">3</option>
-			// 						<option value="4">4</option>
-			// 						<option value="5">5</option>
-			// 						<option value="6">6</option>
-			// 						<option value="7">7</option>
-			// 						<option value="8">8</option>
-			// 						<option value="9">9</option>
-			// 						<option value="10">10</option>
-			// 					</select>
-			// 				</label>
-			// 			</div>
-			// 		</div>
-			// 		<input className="btn btn-info" type="submit"  />
-			// 	</form>
-			// 	<Link to='/beers'>Back to your beers</Link>
-			// </div>
 		)
 	}
 }

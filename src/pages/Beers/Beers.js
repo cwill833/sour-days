@@ -6,6 +6,7 @@ import style from './Beers.module.css'
 
 
 const Beers = (props) =>{
+  
   const beerList = props.beers.map((beer, index) => {
     return (
       <BeerPost

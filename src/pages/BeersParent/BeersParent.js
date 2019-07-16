@@ -60,6 +60,8 @@ class BeersParent extends Component {
 
 export default BeersParent
 
+//TODO remove to utils
+
 const BASE_URL='/api/beers/'
 async function getBeers(options){
     try{
