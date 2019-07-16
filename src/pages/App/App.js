@@ -53,8 +53,9 @@ class App extends Component{
               history={history}
             />
           }/>
-          <Route exact path='/yelpResults' render={()=>
+          <Route exact path='/yelpResults' render={(history)=>
             <YelpResults 
+            history={history}
             user={this.state.user}
             handleLogout={this.handleLogout}
             />

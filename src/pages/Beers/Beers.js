@@ -1,11 +1,13 @@
 import React from 'react';
 import BeerPost from '../../components/BeerPost/BeerPost'
 import NavBar from '../../components/NavBar/NavBar';
-import './Beers.css'
+import style from './Beers.module.css'
 
 
 
 const Beers = (props) =>{
+  // let sortBeer = props.beers.sort((a, b)=>{return a.distance - b.distance})
+  // console.log(sortBeer)
   const beerList = props.beers.map((beer, index) => {
     return (
       <BeerPost
@@ -26,7 +28,7 @@ const Beers = (props) =>{
             user={props.user}
             handleLogout={props.handleLogout}
         />
-        <div className='flex'>
+        <div className={style.flex}>
           {show}
         </div>
     </div>

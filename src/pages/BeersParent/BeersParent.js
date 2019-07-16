@@ -37,12 +37,11 @@ class BeersParent extends Component {
             body: JSON.stringify(this.props.user)
         }
 
-        setTimeout(()=>{getBeers(options).then(results => 
+        getBeers(options).then(results => 
             this.setState({
                 beers: results
             })
         )
-        }, 1000)
     }
 
     render(){

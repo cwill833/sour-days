@@ -52,9 +52,9 @@ module.exports = {
       }
       person.beers.push(beer)
       console.log(person.beers[0])
-        person.save(()=>{
-            res.status(201).json(beer)
-        })
+      person.save(()=>{
+          res.status(201).json(beer)
+      })
     })
   }
   
@@ -73,7 +73,7 @@ module.exports = {
       term: 'Bar',
       latitude: req.body.lat,
       longitude: req.body.lng,
-      limit: 8
+      limit: 9
     }).then(response => {
       console.log(response.jsonBody.businesses);
       let result = response.jsonBody.businesses

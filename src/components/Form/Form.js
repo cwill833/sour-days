@@ -8,7 +8,7 @@ export default class Form extends Component {
 		nameOfPlace: '',
 		location: '',
         beerName: '',
-        rating: '1'
+		rating: '1'
 	}
 
 	handleChange = event => {
@@ -17,16 +17,16 @@ export default class Form extends Component {
 		})
     }
     
-    handleSubmit = event => {
+ handleSubmit = async event => {
         event.preventDefault()
-		this.props.handleAddBeer(this.state)
+	 	await this.props.handleAddBeer(this.state)
 		this.setState({
 			nameOfPlace: '',
 			location: '',
 			beerName: '',
 			rating: '1'
-		});
-		this.props.history.push('/beers')	
+		}, () => this.props.history.push('/beers'));
+			
     } 
 
 	render() {

@@ -4,7 +4,7 @@ import Form from '../../components/Form/Form'
 
 class AddBeer extends Component{
 
-    handleAddBeer = ({nameOfPlace, location, beerName, rating}) => {
+    handleAddBeer = async ({nameOfPlace, location, beerName, rating}) => {
         const {user} = this.props
             const options = {
                 method: 'POST',
@@ -13,7 +13,7 @@ class AddBeer extends Component{
                 },
                 body: JSON.stringify({nameOfPlace, location, beerName, rating, user})
             }    
-            createBeer(options)
+           return await createBeer(options)
         }
 
     render(){
