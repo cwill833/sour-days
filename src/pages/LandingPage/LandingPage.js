@@ -11,6 +11,10 @@ const LandingPage = (props) =>{
         user={props.user}
         handleLogout={props.handleLogout}
       />
+      <div className='jumbotron'>
+        <h3>Welcome to Sour Days! A place to store your favorite beers or save bars that are close to you.</h3>
+        {props.user ? <h4>Add a beer or search beers near you to get started!</h4> : <h4>Login to get started!</h4>}
+      </div>
       <div id="container">
         <div className='pour'></div>
         <div id="beaker">
