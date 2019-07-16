@@ -21,7 +21,9 @@ class AddBeer extends Component{
 
         return(
             <div>
-                <h4>AddBeer</h4>
+                <div className="jumbotron">
+                    <h3>Add a beer to your list {this.props.user.name}!</h3>
+                </div>
                 <Form 
                     handleAddBeer={this.handleAddBeer}
                     history={this.props.history}
