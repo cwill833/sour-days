@@ -6,8 +6,6 @@ import style from './Beers.module.css'
 
 
 const Beers = (props) =>{
-  // let sortBeer = props.beers.sort((a, b)=>{return a.distance - b.distance})
-  // console.log(sortBeer)
   const beerList = props.beers.map((beer, index) => {
     return (
       <BeerPost
@@ -28,6 +26,9 @@ const Beers = (props) =>{
             user={props.user}
             handleLogout={props.handleLogout}
         />
+        <div className="jumbotron">
+          <h1>Welcome, {props.user.name}! See the beers you have saved below!</h1>
+        </div>
         <div className={style.flex}>
           {show}
         </div>

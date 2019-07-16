@@ -70,6 +70,9 @@ class YelpResults extends Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
+                <div className="jumbotron">
+                <h3>These are the closet bars to you {this.props.user.name}!</h3>
+              </div>
                 <div className={style.flex}>
                     {show}
                 </div>

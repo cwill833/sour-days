@@ -3,30 +3,23 @@ import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
   let nav = props.user ?
-    <div>
-      <Link to='/' onClick={props.handleLogout}>LOG OUT</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <span>WELCOME, {props.user.name}</span>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to='/'>Home</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to='/beers'>See my beers</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to='/addBeer'>Add a beer</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to='/yelpResults'>See bars near you!</Link>
+    <div className="nav">
+      <Link className="nav-link justify-content-end" to='/' onClick={props.handleLogout}>LOG OUT</Link>
+      <Link className="nav-link" to='/'>Home</Link>
+      <Link className="nav-link" to='/beers'>See my beers</Link>
+      <Link className="nav-link" to='/addBeer'>Add a beer</Link>
+      <Link className="nav-link" to='/yelpResults'>See bars near you!</Link>
     </div>
     :
-    <div>
-      <Link to='/login'>LOG IN</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <Link to='/signup'>SIGN UP</Link>
+    <div className="nav">
+      <Link className="nav-link" to='/login'>LOG IN</Link>
+      <Link className="nav-link" to='/signup'>SIGN UP</Link>
     </div>;
 
   return(
-    <div>
+    <nav className="nav justify-content-end">
       {nav}
-    </div>
+    </nav>
   )
 }
 

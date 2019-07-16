@@ -1,9 +1,10 @@
 import React from 'react';
 import DeleteButton from '../DeleteButton/DeleteButton'
+import style from './BeerPost.module.css'
 
 function BeerPost ({nameOfPlace, location, beerName, rating, index, handleDeleteBeer, user, _id}) {
     return (
-        <div className="card" style={{width: "25rem"}}>
+        <div className={style.card} style={{width: "25rem"}}>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item">Bar/Brewery: {nameOfPlace}</li>
                 <li className="list-group-item">Location: {location}</li>
